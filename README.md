@@ -9,7 +9,7 @@ Pan and tilt your Arduino connected bracket
 * Pan/Tilt Bracket from [sparkfun](https://www.sparkfun.com/products/10335)
 * 2x Small Servos
 * Breadboard
-# Pinned wires
+* Pinned wires
 
 ## Pan and Tilt bracket
 To create the bracket you can order the parts from [sparkfun](https://www.sparkfun.com/products/10335) and follow their [assembly instructions.](https://www.sparkfun.com/datasheets/Robotics/Other/sensor%20pan%20tilt%20manual.jpg)
