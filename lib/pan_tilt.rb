@@ -3,6 +3,7 @@ require "pan_tilt/version"
 require 'bundler/setup'
 require 'dino'
 require 'io/console'
+require 'pan_tilt/rotor'
 
 module PanTilt
   ESCAPE         = 'e'
@@ -16,5 +17,3 @@ module PanTilt
   MIN_PAN_ANGLE  = 0
   INCREMENT      = 5
 end
-
-require 'pan_tilt/command_line'
