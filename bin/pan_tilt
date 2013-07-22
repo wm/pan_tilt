@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
 require 'pan_tilt'
+require 'pan_tilt/command_line'
 
-PanTilt.run
+PanTilt::CommandLine.new.run
