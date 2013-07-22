@@ -6,8 +6,8 @@ module PanTilt
       @debug      = debug
 
       @board      = Dino::Board.new(Dino::TxRx::Serial.new)
-      @tilt_servo = Dino::Components::Servo.new(pin: 9,  board: @board)
-      @pan_servo  = Dino::Components::Servo.new(pin: 11, board: @board)
+      @tilt_servo = Dino::Components::Servo.new(pin: PanTilt::TILT_PIN,  board: @board)
+      @pan_servo  = Dino::Components::Servo.new(pin: PanTilt::PAN_PIN, board: @board)
     end
 
     def rotate(pan_angle, tilt_angle)

@@ -6,6 +6,8 @@ require 'io/console'
 require 'pan_tilt/rotor'
 
 module PanTilt
+  TILT_PIN       = 9
+  PAN_PIN        = 11
   ESCAPE         = 'e'
   LEFT_ARROW     = 'h'
   RIGHT_ARROW    = 'l'
