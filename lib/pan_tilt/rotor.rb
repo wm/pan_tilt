@@ -2,10 +2,10 @@ module PanTilt
   class Rotor
     attr_reader :board, :tilt_servo, :pan_servo
 
-    def initialize(debug=false)
+    def initialize(board, debug=false)
       @debug      = debug
 
-      @board      = Dino::Board.new(Dino::TxRx::Serial.new)
+      @board      = board
       @tilt_servo = Dino::Components::Servo.new(pin: PanTilt::TILT_PIN,  board: @board)
       @pan_servo  = Dino::Components::Servo.new(pin: PanTilt::PAN_PIN, board: @board)
     end

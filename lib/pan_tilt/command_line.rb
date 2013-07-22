@@ -2,17 +2,21 @@ module PanTilt
   class CommandLine
     def initialize(debug=false)
       @debug      = debug
-      @rotor      = PanTilt::Rotor.new @debug
+      @board      = Dino::Board.new(Dino::TxRx::Serial.new)
+      @rotor      = PanTilt::Rotor.new @board, @debug
       @pan_angle  = PanTilt::MIN_PAN_ANGLE
       @tilt_angle = PanTilt::MIN_TILT_ANGLE
+      @led        = Dino::Components::Led.new(pin: PanTilt::LIVE_LED, board: @board)
     end
 
     def run
       print_instructions
+      @led.send :on
 
       while key = STDIN.getch
         case key
         when PanTilt::ESCAPE
+          @led.send :off
           break
         when PanTilt::LEFT_ARROW
           if @pan_angle > PanTilt::MIN_PAN_ANGLE
