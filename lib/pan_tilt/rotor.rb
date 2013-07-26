@@ -2,12 +2,14 @@ module PanTilt
   class Rotor
     attr_reader :board, :tilt_servo, :pan_servo
 
-    def initialize(board, debug=false)
-      @debug      = debug
+    def initialize(board, options={})
+      @debug      = options[:debug]
+      pan_pos     = options[:pan_position]
+      tilt_pos    = options[:tilt_position]
 
       @board      = board
-      @tilt_servo = Dino::Components::Servo.new(pin: PanTilt::TILT_PIN, board: @board)
-      @pan_servo  = Dino::Components::Servo.new(pin: PanTilt::PAN_PIN, board: @board)
+      @tilt_servo = Dino::Components::Servo.new(pin: PanTilt::TILT_PIN, board: @board, position: tilt_pos)
+      @pan_servo  = Dino::Components::Servo.new(pin: PanTilt::PAN_PIN, board: @board, position: pan_pos)
     end
 
     def rotate_by(pan_offset, tilt_offset)

@@ -1,9 +1,13 @@
 module PanTilt
   class CommandLine
     def initialize(debug=false)
-      @debug = debug
+      options = {
+        debug: debug,
+        pan_position: PanTilt::PAN_START_POSITION,
+        tilt_position: PanTilt::TILT_START_POSITION
+      }
       @board = Dino::Board.new(Dino::TxRx::Serial.new)
-      @rotor = PanTilt::Rotor.new @board, @debug
+      @rotor = PanTilt::Rotor.new @board, options
       @led   = Dino::Components::Led.new(pin: PanTilt::LIVE_LED, board: @board)
     end
 
